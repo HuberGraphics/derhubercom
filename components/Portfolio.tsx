@@ -1,5 +1,7 @@
 import React, { useRef } from 'react';
 import { ExternalLink, Database, Search, Layout } from 'lucide-react';
+import retireAndEnjoyImage from '../src/assets/retireandenjoy.png';
+import paintAtlasImage from '../src/assets/paintatlas.png';
 
 const ProjectCard: React.FC<{
   title: string;
@@ -184,7 +186,7 @@ const Portfolio: React.FC = () => {
             title="RetireAndEnjoy.com"
             category="Informationsplattform"
             description="Umfassende Informationsplattform für Personen im Ruhestand. Die Seite bietet wertvolle Ressourcen, Guides und Tipps für ein erfülltes Leben nach dem Berufsleben."
-            image="/retireandenjoy.png"
+            image={retireAndEnjoyImage}
             features={project1Features}
             technologies={['React', 'SEO-Optimierung', 'CMS']}
           />
@@ -194,7 +196,7 @@ const Portfolio: React.FC = () => {
             title="PaintAtlas.com"
             category="Produkt-Verzeichnis"
             description="Umfassendes Directory mit über 15.000 Farben für Hobby-Maler. Die Plattform ermöglicht das Suchen, Vergleichen und Finden der perfekten Farben."
-            image="/paintatlas.png"
+            image={paintAtlasImage}
             features={project2Features}
             technologies={['Datenbanken', 'Performance']}
             reversed={true}

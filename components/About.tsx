@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShieldCheck } from 'lucide-react';
+import profileImage from '../src/assets/profil3.png';
 
 const About: React.FC = () => {
   return (
@@ -12,7 +13,7 @@ const About: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-brand-200 rounded-2xl transform translate-x-4 translate-y-4"></div>
               <img
-                src="/profil3.png"
+                src={profileImage}
                 alt="Christian Huber"
                 className="relative rounded-2xl shadow-lg w-full object-cover h-[450px] md:h-[550px]"
               />

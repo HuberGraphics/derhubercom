@@ -18,6 +18,20 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
+      },
+      build: {
+        assetsInlineLimit: 0, // Ensure images are not inlined but copied as separate files
+        rollupOptions: {
+          output: {
+            assetFileNames: (assetInfo) => {
+              let extType = assetInfo.name.split('.').pop();
+              if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
+                extType = 'images';
+              }
+              return `assets/${extType}/[name]-[hash][extname]`;
+            }
+          }
+        }
       }
     };
 });
