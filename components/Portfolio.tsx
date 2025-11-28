@@ -11,31 +11,8 @@ const ProjectCard: React.FC<{
   features: Array<{ icon: React.ReactNode; text: string }>;
   technologies: string[];
   reversed?: boolean;
-}> = ({ title, category, description, image, features, technologies, reversed = false }) => {
-  const imageRef = useRef<HTMLDivElement>(null);
-
-  // Tilt effect for project cards
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!imageRef.current) return;
-
-    const card = imageRef.current;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    const rotateX = (y - centerY) / 15; // Reduced sensitivity for subtlety
-    const rotateY = (centerX - x) / 15;
-
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px) scale(1.03)`;
-  };
-
-  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!imageRef.current) return;
-    imageRef.current.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0) scale(1)';
-  };
+  projectUrl: string;
+}> = ({ title, category, description, image, features, technologies, reversed = false, projectUrl }) => {
 
   const directionClass = reversed ? 'lg:flex-row-reverse' : 'lg:flex-row';
   const revealDirection = reversed ? 'reveal-on-scroll-right' : 'reveal-on-scroll-left';
@@ -44,12 +21,15 @@ const ProjectCard: React.FC<{
     <div className={`flex flex-col ${directionClass} gap-16 items-center stagger-container`}>
       {/* Enhanced Image Container */}
       <div className={`lg:w-1/2 ${revealDirection}`}>
-        <div
-          ref={imageRef}
-          className="relative rounded-2xl overflow-hidden shadow-2xl shadow-slate-200 group ring-1 ring-slate-100 bg-gray-50 transition-all duration-500 ease-out tilt-card glow-border gpu-accelerated"
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
+        <a
+          href={projectUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block group"
         >
+          <div
+            className="relative rounded-2xl overflow-hidden shadow-2xl shadow-slate-200 group ring-1 ring-slate-100 bg-gray-50 transition-all duration-500 ease-out glow-border"
+          >
           {/* Enhanced Live Badge */}
           <div className="absolute top-4 left-4 bg-brand-400 text-slate-950 text-xs font-bold px-4 py-1.5 rounded-full z-10 shadow-lg flex items-center gap-2 backdrop-blur-sm">
             <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
@@ -74,9 +54,9 @@ const ProjectCard: React.FC<{
           {/* Enhanced Hover Overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-brand-900/80 via-brand-800/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-[1px]">
             <div className="text-center space-y-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-              <button className="bg-white text-slate-950 px-8 py-4 rounded-xl font-bold flex items-center hover:bg-brand-50 transition-all shadow-xl hover:scale-105 transform magnetic-button ripple-container">
+              <div className="bg-white text-slate-950 px-8 py-4 rounded-xl font-bold flex items-center shadow-xl">
                 Website ansehen <ExternalLink size={18} className="ml-2" />
-              </button>
+              </div>
               <p className="text-white/80 text-sm">Klicken für Live-Demo</p>
             </div>
           </div>
@@ -84,6 +64,7 @@ const ProjectCard: React.FC<{
           {/* Enhanced Border Glow */}
           <div className="absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r from-brand-200/50 via-brand-300/50 to-brand-200/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10 scale-105"></div>
         </div>
+        </a>
       </div>
 
       {/* Enhanced Content */}
@@ -189,6 +170,7 @@ const Portfolio: React.FC = () => {
             image={retireAndEnjoyImage}
             features={project1Features}
             technologies={['React', 'SEO-Optimierung', 'CMS']}
+            projectUrl="https://retireandenjoy.com"
           />
 
           {/* Project 2 - PaintAtlas */}
@@ -200,6 +182,7 @@ const Portfolio: React.FC = () => {
             features={project2Features}
             technologies={['Datenbanken', 'Performance']}
             reversed={true}
+            projectUrl="https://paintatlas.com"
           />
 
         </div>
