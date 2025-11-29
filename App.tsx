@@ -7,11 +7,31 @@ import Impressum from './components/Impressum';
 import Datenschutz from './components/Datenschutz';
 import Footer from './components/Footer';
 
-// Component to handle scroll to top on route changes
+// Component to handle scroll to top on route changes and Google Analytics tracking
 const ScrollToTop: React.FC = () => {
   const [location] = useLocation();
 
   useEffect(() => {
+    // Track pageview in Google Analytics for route changes
+    if (typeof window.gtag !== 'undefined') {
+      // For anchor links (like #portfolio, #contact, etc.)
+      if (location.includes('#')) {
+        const elementId = location.split('#')[1];
+        if (elementId) {
+          window.gtag('config', 'G-080CGD5Q3V', {
+            page_path: location,
+            page_title: `Der Huber - ${elementId.charAt(0).toUpperCase() + elementId.slice(1)}`
+          });
+        }
+      } else {
+        // For regular page routes
+        window.gtag('config', 'G-080CGD5Q3V', {
+          page_path: location,
+          page_title: document.title
+        });
+      }
+    }
+
     // Only scroll to top for actual page routes, not anchor links
     if (!location.includes('#')) {
       window.scrollTo(0, 0);

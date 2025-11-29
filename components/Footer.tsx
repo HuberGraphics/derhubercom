@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Mail, Phone, MapPin, Linkedin, Github, Clock } from 'lucide-react';
 import { Link } from 'wouter';
+import { trackEmailClick, trackPhoneCall } from '../utils/analytics';
 
 const Footer: React.FC = () => {
   useEffect(() => {
@@ -33,6 +34,7 @@ const Footer: React.FC = () => {
               <a
                 href="mailto:christian@derhuber.com"
                 className="group flex items-center gap-4 text-slate-700 hover:text-brand-600 transition-base p-4 rounded-xl bg-white border border-slate-200 hover:border-brand-200 shadow-sm hover:shadow-card"
+                onClick={() => trackEmailClick('christian@derhuber.com')}
               >
                 <div className="bg-brand-50 text-brand-600 p-3 rounded-lg group-hover:bg-brand-100 transition-base">
                   <Mail size={20} />
@@ -45,6 +47,7 @@ const Footer: React.FC = () => {
               <a
                 href="tel:015129515056"
                 className="group flex items-center gap-4 text-slate-700 hover:text-brand-600 transition-base p-4 rounded-xl bg-white border border-slate-200 hover:border-brand-200 shadow-sm hover:shadow-card"
+                onClick={trackPhoneCall}
               >
                 <div className="bg-brand-50 text-brand-600 p-3 rounded-lg group-hover:bg-brand-100 transition-base">
                   <Phone size={20} />
@@ -94,11 +97,11 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center">
                 <Phone size={18} className="mr-3 text-brand-500 flex-shrink-0" />
-                <a href="tel:+4915129515056" className="hover:text-brand-600 transition-base">+49 151 2951 5056</a>
+                <a href="tel:+4915129515056" className="hover:text-brand-600 transition-base" onClick={trackPhoneCall}>+49 151 2951 5056</a>
               </li>
               <li className="flex items-center">
                 <Mail size={18} className="mr-3 text-brand-500 flex-shrink-0" />
-                <a href="mailto:christian@derhuber.com" className="hover:text-brand-600 transition-base">christian@derhuber.com</a>
+                <a href="mailto:christian@derhuber.com" className="hover:text-brand-600 transition-base" onClick={() => trackEmailClick('christian@derhuber.com')}>christian@derhuber.com</a>
               </li>
               <li className="flex items-center">
                 <Clock size={18} className="mr-3 text-brand-500 flex-shrink-0" />

@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { ExternalLink, Database, Search, Layout } from 'lucide-react';
 import retireAndEnjoyImage from '../src/assets/retireandenjoy.png';
 import paintAtlasImage from '../src/assets/paintatlas.png';
+import { trackProjectClick } from '../utils/analytics';
 
 const ProjectCard: React.FC<{
   title: string;
@@ -26,6 +27,7 @@ const ProjectCard: React.FC<{
           target="_blank"
           rel="noopener noreferrer"
           className="block group"
+          onClick={() => trackProjectClick(title, projectUrl)}
         >
           <div
             className="relative rounded-2xl overflow-hidden shadow-2xl shadow-slate-200 group ring-1 ring-slate-100 bg-gray-50 transition-all duration-500 ease-out glow-border"
