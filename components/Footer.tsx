@@ -136,7 +136,6 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-slate-200 mt-16 pt-8 text-center text-sm text-slate-400 flex flex-col md:flex-row justify-between items-center">
           <p>© 2025 Der Huber. Alle Rechte vorbehalten.</p>
-          <p className="mt-2 md:mt-0">Made with intent in Heidelberg.</p>
         </div>
       </div>
     </footer>
