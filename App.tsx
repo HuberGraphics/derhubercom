@@ -5,6 +5,7 @@ import Home from './components/Home';
 import ServiceDetail from './components/ServiceDetail';
 import Impressum from './components/Impressum';
 import Datenschutz from './components/Datenschutz';
+import Landing24h from './components/Landing24h';
 import Footer from './components/Footer';
 
 // Component to handle scroll to top on route changes and Google Analytics tracking
@@ -54,21 +55,18 @@ const ScrollToTop: React.FC = () => {
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <>
       <ScrollToTop />
-      <Header />
-      <main className="flex-grow">
-        <Switch>
-          <Route path="/" component={Home} />
-          <Route path="/leistungen/:slug" component={ServiceDetail} />
-          <Route path="/impressum" component={Impressum} />
-          <Route path="/datenschutz" component={Datenschutz} />
-          {/* Fallback to Home for unknown routes or handle 404 properly */}
-          <Route component={Home} />
-        </Switch>
-      </main>
-      <Footer />
-    </div>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/24h-website" component={Landing24h} />
+        <Route path="/leistungen/:slug" component={ServiceDetail} />
+        <Route path="/impressum" component={Impressum} />
+        <Route path="/datenschutz" component={Datenschutz} />
+        {/* Fallback to Home for unknown routes or handle 404 properly */}
+        <Route component={Home} />
+      </Switch>
+    </>
   );
 }
 

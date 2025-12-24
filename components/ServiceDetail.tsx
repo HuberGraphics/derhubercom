@@ -1,13 +1,17 @@
+'use client';
+
 import React, { useEffect } from 'react';
-import { useRoute } from 'wouter';
+import Link from 'next/link';
 import { servicesData } from '../data/services';
 import { CheckCircle2, ArrowLeft, Mail, Phone, Calendar } from 'lucide-react';
 
-const ServiceDetail: React.FC = () => {
-  const [match, params] = useRoute('/leistungen/:slug');
-  
+interface ServiceDetailProps {
+  slug: string;
+}
+
+const ServiceDetail: React.FC<ServiceDetailProps> = ({ slug }) => {
   // Find the service data based on the URL slug
-  const service = servicesData.find(s => s.slug === params?.slug);
+  const service = servicesData.find(s => s.slug === slug);
 
   useEffect(() => {
     // Scroll to top when component mounts
@@ -35,13 +39,13 @@ const ServiceDetail: React.FC = () => {
     }, 100);
     
     return () => observer.disconnect();
-  }, [params?.slug]);
+  }, [slug]);
 
   if (!service) {
     return (
       <div className="min-h-screen pt-32 pb-20 px-4 text-center">
         <h1 className="text-2xl font-bold text-slate-900">Dienstleistung nicht gefunden</h1>
-        <a href="/" className="text-brand-600 underline mt-4 inline-block">Zurück zur Startseite</a>
+        <Link href="/" className="text-brand-600 underline mt-4 inline-block">Zurück zur Startseite</Link>
       </div>
     );
   }
@@ -53,9 +57,9 @@ const ServiceDetail: React.FC = () => {
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-brand-500/5 rounded-full blur-[80px] pointer-events-none"></div>
         <div className="container mx-auto px-4 relative z-10">
           <nav className="flex items-center text-sm text-slate-500 mb-8">
-            <a href="/" className="hover:text-brand-500 transition-colors">Startseite</a>
+            <Link href="/" className="hover:text-brand-500 transition-colors">Startseite</Link>
             <span className="mx-2">/</span>
-            <a href="/#services" className="hover:text-brand-500 transition-colors">Leistungen</a>
+            <Link href="/#services" className="hover:text-brand-500 transition-colors">Leistungen</Link>
             <span className="mx-2">/</span>
             <span className="text-slate-900 font-medium">{service.title}</span>
           </nav>

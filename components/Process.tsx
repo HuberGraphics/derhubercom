@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect, useRef } from 'react';
 
 const ProcessStep: React.FC<{
@@ -12,7 +14,7 @@ const ProcessStep: React.FC<{
   onStepVisible: (index: number) => void;
 }> = ({ step, index, totalSteps, isActive, onStepVisible }) => {
   const stepRef = useRef<HTMLDivElement>(null);
-  const lineRef = useRef<HTMLDivElement>(null);
+  const lineRef = useRef<SVGPathElement>(null);
   const [stepNumber, setStepNumber] = useState(0);
 
   // Counter animation for step number

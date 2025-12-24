@@ -1,71 +1,13 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Mail, Phone, MapPin, Linkedin, Github, Clock } from 'lucide-react';
 import Link from 'next/link';
-import Script from 'next/script';
 import { trackEmailClick, trackPhoneCall } from '../utils/analytics';
 
-const Footer: React.FC = () => {
-
+const LandingFooter: React.FC = () => {
   return (
-    <footer id="contact" className="bg-white text-slate-600 border-t border-slate-200">
-
-      {/* Contact CTA Section */}
-      <div className="container mx-auto px-4 py-24 border-b border-slate-200">
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-16">
-          <div className="lg:w-1/2">
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">Bereit für Ihre neue Website?</h2>
-            <p className="text-lg text-slate-600 mb-10 max-w-xl leading-relaxed">
-              Lassen Sie uns in einem kostenlosen Beratungsgespräch besprechen, wie ich Ihnen helfen kann, online erfolgreich zu werden. Ich freue mich auf Ihr Projekt!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6">
-              <a
-                href="mailto:christian@derhuber.com"
-                className="group flex items-center gap-4 text-slate-700 hover:text-brand-600 transition-base p-4 rounded-xl bg-white border border-slate-200 hover:border-brand-200 shadow-sm hover:shadow-card"
-                onClick={() => trackEmailClick('christian@derhuber.com')}
-              >
-                <div className="bg-brand-50 text-brand-600 p-3 rounded-lg group-hover:bg-brand-100 transition-base">
-                  <Mail size={20} />
-                </div>
-                <div>
-                  <div className="text-xs text-slate-400 uppercase tracking-wide font-semibold mb-0.5">Email schreiben</div>
-                  <div className="font-semibold text-lg">christian@derhuber.com</div>
-                </div>
-              </a>
-              <a
-                href="tel:015129515056"
-                className="group flex items-center gap-4 text-slate-700 hover:text-brand-600 transition-base p-4 rounded-xl bg-white border border-slate-200 hover:border-brand-200 shadow-sm hover:shadow-card"
-                onClick={trackPhoneCall}
-              >
-                <div className="bg-brand-50 text-brand-600 p-3 rounded-lg group-hover:bg-brand-100 transition-base">
-                  <Phone size={20} />
-                </div>
-                <div>
-                  <div className="text-xs text-slate-400 uppercase tracking-wide font-semibold mb-0.5">Anrufen</div>
-                  <div className="font-semibold text-lg">+49 151 2951 5056</div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div className="lg:w-5/12 w-full bg-slate-50 p-8 md:p-10 rounded-2xl border border-slate-200 shadow-card">
-            <h3 className="text-xl font-semibold text-slate-900 mb-6">Schnellkontakt</h3>
-            <Script
-              src="https://app.youform.com/embed.js"
-              strategy="lazyOnload"
-            />
-            <div
-              data-youform-embed
-              data-form="d1cu7llu"
-              data-width="100%"
-              data-height="700"
-              style={{ minHeight: '700px' }}
-            />
-          </div>
-        </div>
-      </div>
-
+    <footer className="bg-white text-slate-600 border-t border-slate-200">
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
@@ -135,4 +77,4 @@ const Footer: React.FC = () => {
   );
 };
 
-export default Footer;
+export default LandingFooter;

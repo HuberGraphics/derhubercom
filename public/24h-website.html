@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24 Stunden Website - Express Webdesign Service | Der Huber</title>
+    <meta name="description" content="Professionelle Website in 24 Stunden! Blitzschneller Webdesign Service für Gründer und Unternehmen. Mobile-First, SEO-optimiert, DSGVO-konform. Jetzt zum Aktionspreis sichern!">
+    <meta name="keywords" content="24h Website, Express Webdesign, schnelle Website, Website in 24 Stunden, Webdesign Heidelberg, Der Huber">
+    <meta name="author" content="Der Huber - Webdesign & Webentwicklung">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://derhuber.com/24h-website">
+    <meta property="og:title" content="24 Stunden Website - Express Webdesign Service | Der Huber">
+    <meta property="og:description" content="Professionelle Website in 24 Stunden! Blitzschneller Webdesign Service für Gründer und Unternehmen. Mobile-First, SEO-optimiert.">
+    <meta property="og:image" content="https://derhuber.com/og-image-24h.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://derhuber.com/24h-website">
+    <meta property="twitter:title" content="24 Stunden Website - Express Webdesign Service | Der Huber">
+    <meta property="twitter:description" content="Professionelle Website in 24 Stunden! Blitzschneller Webdesign Service für Gründer und Unternehmen.">
+    <meta property="twitter:image" content="https://derhuber.com/twitter-image-24h.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://derhuber.com/24h-website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "24 Stunden Website Service",
+      "description": "Professionelle Website-Erstellung innerhalb von 24 Stunden für Unternehmen und Gründer",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Der Huber",
+        "url": "https://derhuber.com",
+        "telephone": "0151 2951 5056",
+        "email": "christian@derhuber.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Heidelberg",
+          "addressCountry": "DE"
+        }
+      },
+      "serviceType": "Web Design Service",
+      "areaServed": "Heidelberg, Rhein-Neckar-Kreis, Deutschland",
+      "offers": {
+        "@type": "Offer",
+        "price": "49",
+        "priceCurrency": "EUR",
+        "billingDuration": "P1M",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "49",
+          "priceCurrency": "EUR",
+          "billingIncrement": "1",
+          "billingStart": "P1M"
+        },
+        "availability": "https://schema.org/InStock"
+      },
+      "featureList": [
+        "Mobile-First Design",
+        "SEO-Optimierung",
+        "DSGVO-Konformität",
+        "SSL-Zertifikat",
+        "30 Tage Support"
+      ]
+    }
+    </script>
+
+    <!-- Redirect to main application after 3 seconds -->
+    <meta http-equiv="refresh" content="3;url=/24h-website">
+
+    <style>
+        :root {
+            /* 8-point spacing system */
+            --space-8: 8px;
+            --space-16: 16px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --space-48: 48px;
+            --space-64: 64px;
+            
+            /* Colors */
+            --color-primary: #1bde94;
+            --color-white: #ffffff;
+            --color-black: #000000;
+            --color-gray-100: #f3f4f6;
+            --color-gray-900: #111827;
+            
+            /* Border radius */
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            
+            /* Elevation */
+            --elevation-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+            --elevation-md: 0 4px 6px rgba(0, 0, 0, 0.16);
+            
+            /* Typography */
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-secondary: 'Georgia', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-primary);
+            background: var(--color-white);
+            color: var(--color-black);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 480px;
+            padding: var(--space-32);
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: var(--space-16);
+            font-family: var(--font-primary);
+        }
+
+        .highlight {
+            color: var(--color-primary);
+        }
+
+        .loading-indicator {
+            width: var(--space-48);
+            height: var(--space-48);
+            border: 3px solid var(--color-gray-100);
+            border-top: 3px solid var(--color-primary);
+            border-radius: var(--radius-lg);
+            margin: var(--space-32) auto;
+            position: relative;
+        }
+
+        .loading-indicator::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 3px solid transparent;
+            border-top: 3px solid var(--color-primary);
+            border-radius: var(--radius-lg);
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .redirect-info {
+            background: var(--color-gray-100);
+            border-radius: var(--radius-md);
+            padding: var(--space-24);
+            margin-top: var(--space-32);
+            box-shadow: var(--elevation-sm);
+        }
+
+        .manual-link {
+            display: inline-block;
+            background: var(--color-primary);
+            color: var(--color-black);
+            padding: var(--space-16) var(--space-32);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: var(--space-16);
+            transition: opacity 0.2s ease;
+            font-family: var(--font-primary);
+        }
+
+        .manual-link:hover {
+            opacity: 0.9;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: var(--space-16) 0;
+            font-family: var(--font-primary);
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--space-8);
+            font-family: var(--font-primary);
+        }
+
+        p {
+            margin: var(--space-8) 0;
+            font-family: var(--font-primary);
+        }
+
+        /* Mobile-first responsive design */
+        @media (min-width: 640px) {
+            .container {
+                max-width: 512px;
+                padding: var(--space-48);
+            }
+            
+            .logo {
+                font-size: 2.25rem;
+            }
+            
+            h1 {
+                font-size: 1.75rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 576px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            Der <span class="highlight">Huber</span>
+        </div>
+
+        <h1>24 Stunden Website</h1>
+        <p>Professionelle Website in 24 Stunden für nur 49€/Monat</p>
+
+        <div class="loading-indicator"></div>
+
+        <div class="redirect-info">
+            <h2>Wir leiten Sie weiter...</h2>
+            <p>Sie werden automatisch zur 24h Website Landingpage weitergeleitet.</p>
+            <p><strong>Sollte die Weiterleitung nicht funktionieren:</strong></p>
+            <a href="/24h-website" class="manual-link">Hier geht es zur Landingpage</a>
+        </div>
+    </div>
+</body>
+</html>

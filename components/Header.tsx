@@ -1,16 +1,19 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Menu, X, Phone, Mail, ChevronDown } from 'lucide-react';
-import { useLocation, Link } from 'wouter';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { trackEmailClick, trackPhoneCall } from '../utils/analytics';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [location] = useLocation();
+  const pathname = usePathname();
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   // Helper to determine if we are on homepage
-  const isHome = location === '/';
+  const isHome = pathname === '/';
 
   // Function to get correct href
   const getHref = (id: string) => {
@@ -47,9 +50,9 @@ const Header: React.FC = () => {
 
       {/* Main Navigation */}
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="/" className="text-2xl font-bold text-slate-900 tracking-tight hover:text-brand-600 transition-base">
+        <Link href="/" className="text-2xl font-bold text-slate-900 tracking-tight hover:text-brand-600 transition-base">
           Der <span className="text-brand-500">Huber</span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
@@ -107,13 +110,23 @@ const Header: React.FC = () => {
       {isOpen && (
         <div className="md:hidden bg-white border-t border-slate-200 absolute w-full shadow-card">
           <nav className="flex flex-col p-6 space-y-1">
-            <a
-              href={isHome ? '#home' : '/'}
-              className="flex items-center justify-between py-3 px-4 text-slate-700 font-medium hover:bg-slate-50 hover:text-brand-600 rounded-lg transition-base"
-              onClick={() => setIsOpen(false)}
-            >
-              Home
-            </a>
+            {isHome ? (
+              <a
+                href="#home"
+                className="flex items-center justify-between py-3 px-4 text-slate-700 font-medium hover:bg-slate-50 hover:text-brand-600 rounded-lg transition-base"
+                onClick={() => setIsOpen(false)}
+              >
+                Home
+              </a>
+            ) : (
+              <Link
+                href="/"
+                className="flex items-center justify-between py-3 px-4 text-slate-700 font-medium hover:bg-slate-50 hover:text-brand-600 rounded-lg transition-base"
+                onClick={() => setIsOpen(false)}
+              >
+                Home
+              </Link>
+            )}
 
             {/* Mobile Services Section */}
             <div className="py-2">

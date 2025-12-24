@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState } from 'react';
-import { Link } from 'wouter';
+import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { servicesData } from '../data/services';
 
@@ -26,7 +28,7 @@ const ServiceCard: React.FC<{ service: any; index: number }> = ({ service, index
           {/* Feature list */}
           <div className="mb-6">
             <ul className="space-y-2">
-              {service.features.slice(0, 3).map((point, idx) => (
+              {service.features.slice(0, 3).map((point: string, idx: number) => (
                 <li
                   key={idx}
                   className="flex items-start text-sm text-slate-600"
