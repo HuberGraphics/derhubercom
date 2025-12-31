@@ -22,20 +22,20 @@ const PricingCard: React.FC<{
   isBestseller = false,
   badge
 }) => {
-  const baseClasses = `bg-white p-8 lg:p-10 rounded-2xl border border-slate-200 transition-base relative`;
+  const baseClasses = `bg-white p-8 lg:p-10 rounded-lg border border-slate-200 transition-base relative`;
   const bestsellerClasses = isBestseller
-    ? 'shadow-lg border-brand-200 hover:shadow-xl hover-lift'
-    : 'shadow-sm hover:shadow-card hover-lift';
+    ? 'shadow-md border-brand-200 hover:shadow-lg hover-lift'
+    : 'shadow-sm hover:shadow-md hover-lift';
 
   const buttonClasses = buttonVariant === 'primary'
-    ? 'block w-full text-center bg-brand-400 hover:bg-brand-300 text-slate-950 font-semibold py-3.5 rounded-xl transition-base shadow-brand-subtle hover:shadow-button-hover focus-ring'
-    : 'block w-full text-center border border-slate-200 hover:border-brand-400 hover:bg-brand-400 hover:text-slate-950 text-slate-900 font-semibold py-3.5 rounded-xl transition-base focus-ring';
+    ? 'block w-full text-center bg-brand-400 hover:bg-brand-500 text-white font-semibold py-3.5 rounded-lg transition-base shadow-md hover:shadow-lg focus-ring'
+    : 'block w-full text-center border border-slate-200 hover:border-brand-400 hover:bg-brand-400 hover:text-white text-slate-900 font-semibold py-3.5 rounded-lg transition-base focus-ring';
 
   return (
     <div className={`${baseClasses} ${bestsellerClasses}`}>
       {/* Bestseller Badge */}
       {isBestseller && (
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-400 text-slate-950 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide flex items-center shadow-subtle z-10">
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-400 text-white px-4 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wide flex items-center shadow-md z-10">
           <Star size={12} className="mr-1.5 fill-current" />
           Bestseller
         </div>
@@ -158,7 +158,7 @@ const Pricing: React.FC = () => {
             <span className="text-brand-700 font-semibold text-xs uppercase tracking-wide">Preise</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">
-            Unsere Website-Pakete
+            Die Website-Pakete
           </h2>
           <p className="text-slate-600 text-lg leading-relaxed max-w-2xl mx-auto">
             Finden Sie das Paket, das zu Ihrem Unternehmen passt – von der schnellen Starter-Lösung bis zum umfassenden Premium-Auftritt.

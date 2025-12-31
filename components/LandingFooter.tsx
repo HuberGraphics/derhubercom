@@ -40,7 +40,7 @@ const LandingFooter: React.FC = () => {
               </li>
               <li className="flex items-center">
                 <Clock size={18} className="mr-3 text-brand-500 flex-shrink-0" />
-                <span>Mo-Fr: 9:00-18:00 Uhr</span>
+                <span>Mo-Fr: 08:00-20:00 Uhr</span>
               </li>
             </ul>
           </div>

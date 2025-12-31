@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 const ProcessStep: React.FC<{
   step: {
@@ -20,7 +20,6 @@ const ProcessStep: React.FC<{
   // Counter animation for step number
   useEffect(() => {
     if (isActive) {
-      onStepVisible(index);
       const targetNumber = parseInt(step.num);
       let current = 0;
       const increment = 1;
@@ -40,7 +39,7 @@ const ProcessStep: React.FC<{
 
       return () => clearInterval(timer);
     }
-  }, [isActive, step.num, onStepVisible, index]);
+  }, [isActive, step.num]);
 
   // Animated connecting line
   useEffect(() => {
@@ -127,6 +126,7 @@ const ProcessStep: React.FC<{
 const Process: React.FC = () => {
   const [visibleSteps, setVisibleSteps] = useState<Set<number>>(new Set());
   const containerRef = useRef<HTMLDivElement>(null);
+  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const steps = [
     {
@@ -151,9 +151,58 @@ const Process: React.FC = () => {
     }
   ];
 
-  const handleStepVisible = (index: number) => {
-    setVisibleSteps(prev => new Set([...prev, index]));
-  };
+  const handleStepVisible = useCallback((index: number) => {
+    setVisibleSteps(prev => {
+      // Only update if index is not already in the set
+      if (prev.has(index)) {
+        return prev;
+      }
+      return new Set([...prev, index]);
+    });
+  }, []);
+
+  // IntersectionObserver to trigger step animations when scrolled into view
+  useEffect(() => {
+    const stepObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = stepRefs.current.findIndex(ref => ref === entry.target);
+            if (index !== -1) {
+              handleStepVisible(index);
+            }
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    stepRefs.current.forEach((ref) => {
+      if (ref) stepObserver.observe(ref);
+    });
+
+    // IntersectionObserver for reveal-on-scroll animations
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    setTimeout(() => {
+      const revealElements = containerRef.current?.querySelectorAll('.reveal-on-scroll');
+      revealElements?.forEach((el) => revealObserver.observe(el));
+    }, 100);
+
+    return () => {
+      stepObserver.disconnect();
+      revealObserver.disconnect();
+    };
+  }, [handleStepVisible]);
 
   return (
     <section className="py-24 bg-gray-50 text-slate-900 relative overflow-hidden">
@@ -178,14 +227,19 @@ const Process: React.FC = () => {
         {/* Enhanced Process Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 stagger-container">
           {steps.map((step, index) => (
-            <ProcessStep
+            <div
               key={index}
-              step={step}
-              index={index}
-              totalSteps={steps.length}
-              isActive={visibleSteps.has(index)}
-              onStepVisible={handleStepVisible}
-            />
+              ref={(el) => { stepRefs.current[index] = el; }}
+              className="h-full"
+            >
+              <ProcessStep
+                step={step}
+                index={index}
+                totalSteps={steps.length}
+                isActive={visibleSteps.has(index)}
+                onStepVisible={handleStepVisible}
+              />
+            </div>
           ))}
         </div>
 

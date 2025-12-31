@@ -10,11 +10,11 @@ const About: React.FC = () => {
         <div className="flex flex-col md:flex-row gap-16 items-center mb-32">
           <div className="md:w-5/12">
             <div className="relative">
-              <div className="absolute inset-0 bg-brand-200 rounded-2xl transform translate-x-4 translate-y-4"></div>
+              <div className="absolute inset-0 bg-brand-200 rounded-lg transform translate-x-4 translate-y-4"></div>
               <img
                 src="/images/profil3.png"
                 alt="Christian Huber"
-                className="relative rounded-2xl shadow-lg w-full object-cover h-[450px] md:h-[550px]"
+                className="relative rounded-lg shadow-md w-full object-cover h-[450px] md:h-[550px]"
               />
             </div>
           </div>
@@ -42,9 +42,9 @@ const About: React.FC = () => {
         </div>
 
         {/* Guarantee Section */}
-        <div className="bg-slate-50 rounded-2xl p-10 md:p-20 text-center border border-slate-200">
+        <div className="bg-slate-50 rounded-lg p-10 md:p-20 text-center border border-slate-200">
           <div className="flex justify-center mb-8">
-            <div className="bg-white p-5 rounded-2xl text-brand-500 shadow-subtle">
+            <div className="bg-white p-5 rounded-lg text-brand-500 shadow-sm">
               <ShieldCheck size={40} />
             </div>
           </div>

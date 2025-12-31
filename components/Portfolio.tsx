@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { ExternalLink, Database, Search, Layout } from 'lucide-react';
 import { trackProjectClick } from '../utils/analytics';
 
@@ -16,12 +16,11 @@ const ProjectCard: React.FC<{
 }> = ({ title, category, description, image, features, technologies, reversed = false, projectUrl }) => {
 
   const directionClass = reversed ? 'lg:flex-row-reverse' : 'lg:flex-row';
-  const revealDirection = reversed ? 'reveal-on-scroll-right' : 'reveal-on-scroll-left';
 
   return (
-    <div className={`flex flex-col ${directionClass} gap-16 items-center stagger-container`}>
+    <div className={`flex flex-col ${directionClass} gap-12 lg:gap-16 items-center`}>
       {/* Enhanced Image Container */}
-      <div className={`lg:w-1/2 ${revealDirection}`}>
+      <div className="lg:w-1/2 w-full">
         <a
           href={projectUrl}
           target="_blank"
@@ -45,7 +44,7 @@ const ProjectCard: React.FC<{
             <img
               src={image}
               alt={`${title} Website`}
-              className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700 ease-out reveal-on-scroll"
+              className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700 ease-out"
               style={{
                 filter: 'brightness(1) contrast(1)',
                 transition: 'all 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
@@ -70,7 +69,7 @@ const ProjectCard: React.FC<{
       </div>
 
       {/* Enhanced Content */}
-      <div className="lg:w-1/2 reveal-on-scroll delay-200">
+      <div className="lg:w-1/2 w-full">
         <div className="space-y-6">
           {/* Enhanced Title with underline animation */}
           <h4 className="text-3xl font-bold text-slate-900 tracking-tight relative inline-block">
@@ -133,6 +132,8 @@ const ProjectCard: React.FC<{
 };
 
 const Portfolio: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
   const project1Features = [
     { icon: <Layout size={18} />, text: 'Hunderte Artikel' },
     { icon: <Search size={18} />, text: 'SEO-optimiert' },
@@ -145,8 +146,29 @@ const Portfolio: React.FC = () => {
     { icon: <Layout size={18} />, text: 'Cross-Platform' }
   ];
 
+  // IntersectionObserver for reveal-on-scroll animations
+  useEffect(() => {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    setTimeout(() => {
+      const revealElements = sectionRef.current?.querySelectorAll('.reveal-on-scroll, .reveal-on-scroll-left, .reveal-on-scroll-right, .reveal-on-scale');
+      revealElements?.forEach((el) => revealObserver.observe(el));
+    }, 100);
+
+    return () => revealObserver.disconnect();
+  }, []);
+
   return (
-    <section id="portfolio" className="py-24 bg-white">
+    <section id="portfolio" ref={sectionRef} className="py-24 bg-white">
       <div className="container mx-auto px-4">
         {/* Enhanced Section Header */}
         <div className="mb-20 stagger-container">
@@ -162,7 +184,7 @@ const Portfolio: React.FC = () => {
         </div>
 
         {/* Enhanced Projects Space */}
-        <div className="space-y-32">
+        <div className="space-y-24">
 
           {/* Project 1 - RetireAndEnjoy */}
           <ProjectCard
@@ -172,6 +194,7 @@ const Portfolio: React.FC = () => {
             image="/images/retireandenjoy.png"
             features={project1Features}
             technologies={['React', 'SEO-Optimierung', 'CMS']}
+            reversed={false}
             projectUrl="https://retireandenjoy.com"
           />
 
@@ -183,7 +206,7 @@ const Portfolio: React.FC = () => {
             image="/images/paintatlas.png"
             features={project2Features}
             technologies={['Datenbanken', 'Performance']}
-            reversed={true}
+            reversed={false}
             projectUrl="https://paintatlas.com"
           />
 

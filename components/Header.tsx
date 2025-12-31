@@ -29,28 +29,41 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-slate-200 shadow-subtle">
+    <header className="sticky top-0 z-50 w-full glass border-b border-slate-200/50">
       {/* Top Bar */}
       <div className="bg-slate-50 text-slate-600 py-2 text-sm border-b border-slate-100">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-6">
-            <a href="tel:015129515056" className="flex items-center gap-2 text-slate-600 hover:text-brand-600 transition-base" onClick={trackPhoneCall}>
+            <a
+              href="tel:015129515056"
+              className="flex items-center gap-2 text-slate-600 hover:text-brand-600 transition-base"
+              onClick={trackPhoneCall}
+            >
               <Phone size={14} className="text-brand-500" />
-              <span className="hidden sm:inline">0151 2951 5056</span>
-              <span className="sm:hidden">Anrufen</span>
+              <span className="hidden sm:inline text-sm">0151 2951 5056</span>
+              <span className="sm:hidden text-sm">Anrufen</span>
             </a>
-            <a href="mailto:christian@derhuber.com" className="hidden sm:flex items-center gap-2 text-slate-600 hover:text-brand-600 transition-base" onClick={() => trackEmailClick('christian@derhuber.com')}>
+            <a
+              href="mailto:christian@derhuber.com"
+              className="hidden sm:flex items-center gap-2 text-slate-600 hover:text-brand-600 transition-base"
+              onClick={() => trackEmailClick('christian@derhuber.com')}
+            >
               <Mail size={14} className="text-brand-500" />
-              christian@derhuber.com
+              <span className="text-sm">christian@derhuber.com</span>
             </a>
           </div>
-          <span className="hidden md:inline text-slate-500 text-sm">Ihr Partner in Heidelberg & Rhein-Neckar</span>
+          <span className="hidden md:inline text-slate-500 text-xs font-semibold tracking-wide">
+            Heidelberg & Rhein-Neckar
+          </span>
         </div>
       </div>
 
       {/* Main Navigation */}
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold text-slate-900 tracking-tight hover:text-brand-600 transition-base">
+        <Link
+          href="/"
+          className="text-2xl font-bold text-slate-900 tracking-tight hover:text-brand-600 transition-base"
+        >
           Der <span className="text-brand-500">Huber</span>
         </Link>
 
@@ -60,13 +73,13 @@ const Header: React.FC = () => {
           <div className="relative group">
             <a
               href={getHref('services')}
-              className="flex items-center gap-1 text-slate-600 hover:text-brand-600 font-medium text-sm transition-base py-2"
+              className="flex items-center gap-1 text-slate-700 hover:text-brand-600 font-medium text-sm transition-base py-2"
             >
               Leistungen
               <ChevronDown size={14} className="text-slate-400 group-hover:text-brand-600 transition-base" />
             </a>
             {/* Dropdown Menu */}
-            <div className="absolute top-full left-0 w-56 bg-white border border-slate-200 rounded-xl shadow-card opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 z-50">
+            <div className="absolute top-full left-0 w-56 bg-white border border-slate-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 z-50">
               <div className="py-2">
                 <Link href="/leistungen/webdesign" className="block px-4 py-3 text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-base">Webdesign</Link>
                 <Link href="/leistungen/webentwicklung" className="block px-4 py-3 text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-base">Webentwicklung</Link>
@@ -82,7 +95,7 @@ const Header: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-slate-600 hover:text-brand-600 font-medium text-sm transition-base"
+              className="text-slate-700 hover:text-brand-600 font-medium text-sm transition-base"
             >
               {link.name}
             </a>
@@ -90,15 +103,15 @@ const Header: React.FC = () => {
 
           <a
             href={getHref('contact')}
-            className="bg-brand-400 hover:bg-brand-300 text-slate-950 px-6 py-2.5 rounded-lg font-semibold text-sm transition-base shadow-brand-subtle hover:shadow-button-hover focus-ring"
+            className="bg-brand-400 hover:bg-brand-500 text-white px-6 py-2.5 rounded-lg font-semibold text-sm transition-base shadow-md hover:shadow-lg focus-ring"
           >
-            Erstgespräch
+            Kontakt
           </a>
         </nav>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-slate-600 hover:text-brand-600 transition-base p-1"
+          className="md:hidden text-slate-700 hover:text-brand-600 transition-base p-1"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -108,7 +121,7 @@ const Header: React.FC = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-slate-200 absolute w-full shadow-card">
+        <div className="md:hidden bg-white border-t border-slate-200 absolute w-full shadow-lg">
           <nav className="flex flex-col p-6 space-y-1">
             {isHome ? (
               <a
@@ -135,30 +148,44 @@ const Header: React.FC = () => {
                 <Link
                   href="/leistungen/webdesign"
                   onClick={() => setIsOpen(false)}
-                  className="block py-3 px-4 text-slate-700 hover:bg-slate-50 hover:text-brand-600 rounded-lg transition-base"
+                  className="block py-3 px-4 text-slate-700 hover:bg-slate-50 hover:text-brand-600 rounded-lg transition-base text-sm"
                 >
                   Webdesign
                 </Link>
                 <Link
                   href="/leistungen/webentwicklung"
                   onClick={() => setIsOpen(false)}
-                  className="block py-3 px-4 text-slate-700 hover:bg-slate-50 hover:text-brand-600 rounded-lg transition-base"
+                  className="block py-3 px-4 text-slate-700 hover:bg-slate-50 hover:text-brand-600 rounded-lg transition-base text-sm"
                 >
                   Webentwicklung
                 </Link>
                 <Link
                   href="/leistungen/ux-design"
                   onClick={() => setIsOpen(false)}
-                  className="block py-3 px-4 text-slate-700 hover:bg-slate-50 hover:text-brand-600 rounded-lg transition-base"
+                  className="block py-3 px-4 text-slate-700 hover:bg-slate-50 hover:text-brand-600 rounded-lg transition-base text-sm"
                 >
                   UX-Design
                 </Link>
                 <Link
                   href="/leistungen/online-marketing"
                   onClick={() => setIsOpen(false)}
-                  className="block py-3 px-4 text-slate-700 hover:bg-slate-50 hover:text-brand-600 rounded-lg transition-base"
+                  className="block py-3 px-4 text-slate-700 hover:bg-slate-50 hover:text-brand-600 rounded-lg transition-base text-sm"
                 >
                   Online-Marketing
+                </Link>
+                <Link
+                  href="/leistungen/automatisierung"
+                  onClick={() => setIsOpen(false)}
+                  className="block py-3 px-4 text-slate-700 hover:bg-slate-50 hover:text-brand-600 rounded-lg transition-base text-sm"
+                >
+                  Automatisierung
+                </Link>
+                <Link
+                  href="/leistungen/ki-loesungen"
+                  onClick={() => setIsOpen(false)}
+                  className="block py-3 px-4 text-slate-700 hover:bg-slate-50 hover:text-brand-600 rounded-lg transition-base text-sm"
+                >
+                  KI-Lösungen
                 </Link>
               </div>
             </div>
@@ -176,10 +203,10 @@ const Header: React.FC = () => {
 
             <a
               href={getHref('contact')}
-              className="bg-brand-400 hover:bg-brand-300 text-slate-950 px-6 py-3 rounded-xl font-semibold text-center mt-4 transition-base shadow-brand-subtle hover:shadow-button-hover focus-ring"
+              className="bg-brand-400 hover:bg-brand-500 text-white px-6 py-3 rounded-lg font-semibold text-center mt-4 transition-base shadow-md hover:shadow-lg focus-ring"
               onClick={() => setIsOpen(false)}
             >
-              Kostenloses Erstgespräch
+              Kontakt
             </a>
           </nav>
         </div>
