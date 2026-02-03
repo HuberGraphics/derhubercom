@@ -6,6 +6,7 @@ import Process from './Process';
 import About from './About';
 import Portfolio from './Portfolio';
 import Pricing from './Pricing';
+import HomepageFAQ from './HomepageFAQ';
 
 const Home: React.FC = () => {
 
@@ -18,6 +19,7 @@ const Home: React.FC = () => {
       <About />
       <Portfolio />
       <Pricing />
+      <HomepageFAQ />
     </>
   );
 };

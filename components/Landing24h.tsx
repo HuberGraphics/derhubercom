@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Clock, CheckCircle2, Star, Zap, Shield, Phone, Mail, AlertCircle } from 'lucide-react';
 import LandingFooter from './LandingFooter';
-import Script from 'next/script';
+import ContactForm from './ContactForm';
 
 const Landing24h: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -252,59 +252,6 @@ const Landing24h: React.FC = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Was unsere Kunden sagen
-            </h2>
-            <p className="text-xl text-slate-600">Erfolge, die für sich sprechen</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-brand-50 to-white border border-brand-200 rounded-xl p-6">
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} className="text-yellow-400 fill-current" />
-                ))}
-              </div>
-              <p className="text-slate-600 mb-4 italic">
-                "Unglaublich! In 24 Stunden eine professionelle Website, die perfekt zu unserem Unternehmen passt. Der Service war erstklassig!"
-              </p>
-              <div className="font-semibold text-slate-900">Thomas M.</div>
-              <div className="text-sm text-slate-600">CEO, TechStart GmbH</div>
-            </div>
-
-            <div className="bg-gradient-to-br from-brand-50 to-white border border-brand-200 rounded-xl p-6">
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} className="text-yellow-400 fill-current" />
-                ))}
-              </div>
-              <p className="text-slate-600 mb-4 italic">
-                "Blitzschnell und professionell. Meine neue Website hat direkt nach dem Go-Live die ersten Anfragen gebracht!"
-              </p>
-              <div className="font-semibold text-slate-900">Julia K.</div>
-              <div className="text-sm text-slate-600">Freiberufler Marketing</div>
-            </div>
-
-            <div className="bg-gradient-to-br from-brand-50 to-white border border-brand-200 rounded-xl p-6">
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} className="text-yellow-400 fill-current" />
-                ))}
-              </div>
-              <p className="text-slate-600 mb-4 italic">
-                "Ich war skeptisch wegen der kurzen Zeit, aber das Ergebnis übertrifft alle Erwartungen. Sehr zu empfehlen!"
-              </p>
-              <div className="font-semibold text-slate-900">Markus S.</div>
-              <div className="text-sm text-slate-600">Inhaber, Handwerksbetrieb</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Order Form Section */}
       <section id="order-form" className="py-16 bg-gradient-to-br from-slate-50 to-brand-50">
         <div className="container mx-auto px-4 max-w-2xl">
@@ -333,18 +280,7 @@ const Landing24h: React.FC = () => {
               </div>
             </div>
 
-            {/* Youform Embed */}
-            <Script
-              src="https://app.youform.com/embed.js"
-              strategy="lazyOnload"
-            />
-            <div
-              data-youform-embed
-              data-form="d1cu7llu"
-              data-width="100%"
-              data-height="600"
-              style={{ minHeight: '600px' }}
-            />
+            <ContactForm idPrefix="24h" />
 
             <p className="text-xs text-slate-500 text-center mt-6">
               Mit der Bestellung stimmen Sie unseren AGB und Datenschutzbestimmungen zu.

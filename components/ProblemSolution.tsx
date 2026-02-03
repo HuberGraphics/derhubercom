@@ -1,9 +1,52 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useRef, useState } from 'react';
 import { XCircle, CheckCircle } from 'lucide-react';
 
 const ProblemSolution: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Observer for section visibility state
+    const sectionObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      sectionObserver.observe(sectionRef.current);
+    }
+
+    // Observer for reveal-on-scroll animations
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    setTimeout(() => {
+      const revealElements = sectionRef.current?.querySelectorAll('.reveal-on-scroll');
+      revealElements?.forEach((el) => revealObserver.observe(el));
+    }, 100);
+
+    return () => {
+      sectionObserver.disconnect();
+      revealObserver.disconnect();
+    };
+  }, []);
+
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section ref={sectionRef} className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
           
@@ -24,8 +67,8 @@ const ProblemSolution: React.FC = () => {
                 "Ihre Website wirkt weniger professionell als Ihr Unternehmen.",
                 "Sie erledigen viele Aufgaben manuell, die automatisiert sein könnten."
               ].map((item, idx) => (
-                <div key={idx} className={`reveal-on-scroll delay-${(idx + 1) * 100} flex items-start bg-red-50/30 p-5 rounded-xl border border-red-100 hover:border-red-200 hover:bg-red-50/80 transition-all duration-300 group`}>
-                  <XCircle className="text-red-500 mt-0.5 mr-4 flex-shrink-0 group-hover:scale-110 transition-transform" size={22} />
+                <div key={idx} className={`reveal-on-scroll delay-${(idx + 1) * 100} flex items-start bg-red-50/30 p-5 rounded-lg border border-red-100 hover:border-red-200 hover:bg-red-50/80 transition-base group`}>
+                  <XCircle className="text-red-500 mt-0.5 mr-4 flex-shrink-0 group-hover:scale-105 transition-base" size={22} />
                   <p className="text-slate-800 font-medium">{item}</p>
                 </div>
               ))}
@@ -34,11 +77,7 @@ const ProblemSolution: React.FC = () => {
 
           {/* Solution Side */}
           <div className="lg:w-1/2 w-full">
-            <div className="reveal-on-scroll delay-300 bg-white p-8 md:p-12 rounded-3xl shadow-xl hover:shadow-2xl transition-shadow duration-500 relative overflow-hidden border-2 border-brand-100 group">
-              {/* Animated blobs behind solution */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-50 rounded-full filter blur-[80px] opacity-60 transform translate-x-1/3 -translate-y-1/3 animate-float"></div>
-              <div className="absolute bottom-0 left-0 w-48 h-48 bg-brand-50 rounded-full filter blur-[60px] opacity-40 transform -translate-x-1/3 translate-y-1/3 animate-float-delayed"></div>
-              
+            <div className="reveal-on-scroll delay-300 bg-white p-8 md:p-12 rounded-lg shadow-md hover:shadow-lg transition-base relative overflow-hidden border border-brand-100 group">
               <h3 className="text-2xl font-bold mb-6 relative z-10 text-slate-900">Warum Unternehmen auf mich vertrauen</h3>
               <p className="text-slate-600 mb-10 relative z-10 leading-relaxed">
                 Lokale Expertise, persönlicher Service und bewährte Erfolgsstrategien für Ihr Business.
@@ -46,7 +85,7 @@ const ProblemSolution: React.FC = () => {
 
               <div className="space-y-8 relative z-10">
                 <div className="flex items-start group/item">
-                  <div className="bg-brand-50 p-3 rounded-xl mr-5 text-brand-600 group-hover/item:bg-brand-400 group-hover/item:text-slate-950 transition-all duration-300 shadow-sm">
+                  <div className="bg-brand-50 p-3 rounded-lg mr-5 text-brand-600 group-hover/item:bg-brand-400 group-hover/item:text-white transition-base shadow-sm">
                     <CheckCircle size={24} />
                   </div>
                   <div>
