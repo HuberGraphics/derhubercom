@@ -11,119 +11,92 @@ const ProjectCard: React.FC<{
   image: string;
   features: Array<{ icon: React.ReactNode; text: string }>;
   technologies: string[];
-  reversed?: boolean;
   projectUrl: string;
-}> = ({ title, category, description, image, features, technologies, reversed = false, projectUrl }) => {
-
-  const directionClass = reversed ? 'lg:flex-row-reverse' : 'lg:flex-row';
+  isClientProject?: boolean;
+}> = ({ title, category, description, image, features, technologies, projectUrl, isClientProject = false }) => {
 
   return (
-    <div className={`flex flex-col ${directionClass} gap-12 lg:gap-16 items-center`}>
-      {/* Enhanced Image Container */}
-      <div className="lg:w-1/2 w-full">
-        <a
-          href={projectUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block group"
-          onClick={() => trackProjectClick(title, projectUrl)}
-        >
-          <div
-            className="relative rounded-2xl overflow-hidden shadow-2xl shadow-slate-200 group ring-1 ring-slate-100 bg-gray-50 transition-all duration-500 ease-out glow-border"
-          >
-          {/* Enhanced Live Badge */}
-          <div className="absolute top-4 left-4 bg-brand-400 text-slate-950 text-xs font-bold px-4 py-1.5 rounded-full z-10 shadow-lg flex items-center gap-2 backdrop-blur-sm">
-            <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
-            LIVE ONLINE
-            <div className="absolute inset-0 bg-brand-300 rounded-full animate-ping opacity-20"></div>
+    <div className="flex flex-col gap-6 group/card">
+      {/* Image Container - Compact for Grid */}
+      <a
+        href={projectUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block"
+        onClick={() => trackProjectClick(title, projectUrl)}
+      >
+        <div className="relative rounded-xl overflow-hidden shadow-lg shadow-slate-200 ring-1 ring-slate-100 bg-gray-50 transition-all duration-500 ease-out hover:shadow-xl hover:ring-brand-200">
+          {/* Project Type Badge */}
+          <div className={`absolute bottom-3 right-3 text-[10px] font-bold px-3 py-1 rounded-full z-10 shadow-md flex items-center gap-1.5 ${isClientProject ? 'bg-brand-400 text-slate-950' : 'bg-slate-700 text-white'}`}>
+            <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+            {isClientProject ? 'Kundenprojekt' : 'Eigenprojekt'}
           </div>
 
-          {/* Enhanced Image with Reveal Animation */}
-          <div className="relative overflow-hidden rounded-2xl">
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-100/20 via-transparent to-transparent z-10"></div>
+          {/* Image */}
+          <div className="relative overflow-hidden aspect-[3/2]">
             <img
               src={image}
               alt={`${title} Website`}
-              className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700 ease-out"
-              style={{
-                filter: 'brightness(1) contrast(1)',
-                transition: 'all 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
-              }}
+              className="w-full h-full object-cover transform group-hover/card:scale-105 transition-transform duration-700 ease-out"
             />
           </div>
 
-          {/* Enhanced Hover Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-900/80 via-brand-800/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-[1px]">
-            <div className="text-center space-y-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-              <div className="bg-white text-slate-950 px-8 py-4 rounded-xl font-bold flex items-center shadow-xl">
-                Website ansehen <ExternalLink size={18} className="ml-2" />
+          {/* Hover Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-900/80 via-brand-800/60 to-transparent opacity-0 group-hover/card:opacity-100 transition-all duration-500 flex items-center justify-center">
+            <div className="text-center transform translate-y-4 group-hover/card:translate-y-0 transition-transform duration-300">
+              <div className="bg-white text-slate-950 px-6 py-3 rounded-lg font-bold flex items-center shadow-xl text-sm">
+                Website ansehen <ExternalLink size={16} className="ml-2" />
               </div>
-              <p className="text-white/80 text-sm">Klicken für Live-Demo</p>
             </div>
           </div>
-
-          {/* Enhanced Border Glow */}
-          <div className="absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r from-brand-200/50 via-brand-300/50 to-brand-200/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10 scale-105"></div>
         </div>
-        </a>
-      </div>
+      </a>
 
-      {/* Enhanced Content */}
-      <div className="lg:w-1/2 w-full">
-        <div className="space-y-6">
-          {/* Enhanced Title with underline animation */}
-          <h4 className="text-3xl font-bold text-slate-900 tracking-tight relative inline-block">
-            {title}
-            <div className="absolute -bottom-2 left-0 w-0 h-1 bg-brand-400 transition-all duration-500 group-hover:w-full"></div>
-          </h4>
+      {/* Content - Compact */}
+      <div className="space-y-4">
+        {/* Title */}
+        <h4 className="text-xl font-bold text-slate-900 tracking-tight">
+          {title}
+        </h4>
 
-          {/* Enhanced Category Badge */}
-          <div className="flex items-center gap-3">
-            <span className="inline-block bg-gradient-to-r from-brand-50 to-brand-100 text-brand-700 text-xs font-bold px-4 py-2 rounded-md tracking-wide uppercase border border-brand-200/50 glow-border">
-              {category}
-            </span>
-            <div className="flex items-center gap-1">
-              <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
-              <span className="text-xs text-slate-500 font-medium">Aktives Projekt</span>
-            </div>
-          </div>
+        {/* Category Badge */}
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="inline-block bg-gradient-to-r from-brand-50 to-brand-100 text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-md tracking-wide uppercase border border-brand-200/50">
+            {category}
+          </span>
+        </div>
 
-          {/* Enhanced Description */}
-          <p className="text-slate-600 leading-relaxed text-lg group-hover:text-slate-700 transition-colors duration-300">
-            {description}
-          </p>
+        {/* Description */}
+        <p className="text-slate-600 leading-relaxed text-sm line-clamp-3">
+          {description}
+        </p>
 
-          {/* Enhanced Features Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {features.map((feature, idx) => (
-              <div
-                key={idx}
-                className="flex items-center text-sm text-slate-700 font-medium group/item p-3 rounded-lg hover:bg-brand-50/50 transition-all duration-300"
-                style={{ transitionDelay: `${idx * 100}ms` }}
-              >
-                <div className="mr-3 text-brand-500 group-hover/item:scale-110 transition-transform duration-300">
-                  {feature.icon}
-                </div>
-                <span className="group-hover/item:text-slate-900 transition-colors duration-300">{feature.text}</span>
+        {/* Features - Compact Single Column */}
+        <div className="space-y-2">
+          {features.slice(0, 3).map((feature, idx) => (
+            <div
+              key={idx}
+              className="flex items-center text-xs text-slate-700 font-medium"
+            >
+              <div className="mr-2 text-brand-500">
+                {feature.icon}
               </div>
-            ))}
-          </div>
-
-          {/* Enhanced Technology Stack */}
-          <div className="border-t border-gray-100 pt-6 space-y-4">
-            <p className="text-xs font-bold text-slate-400 uppercase tracking-wide">Technologie-Stack</p>
-            <div className="flex gap-3 flex-wrap">
-              {technologies.map((tech, idx) => (
-                <span
-                  key={idx}
-                  className="relative bg-white text-slate-600 px-4 py-2 rounded-lg text-sm font-medium border border-slate-100 shadow-sm hover:border-brand-300 hover:text-brand-600 hover:shadow-md transition-all duration-300 cursor-default group/tech"
-                  style={{ transitionDelay: `${idx * 50}ms` }}
-                >
-                  {tech}
-                  <div className="absolute inset-0 bg-brand-50 rounded-lg opacity-0 group-hover/tech:opacity-100 transition-opacity duration-300"></div>
-                </span>
-              ))}
+              <span>{feature.text}</span>
             </div>
+          ))}
+        </div>
+
+        {/* Technology Stack - Compact */}
+        <div className="border-t border-gray-100 pt-4">
+          <div className="flex gap-2 flex-wrap">
+            {technologies.slice(0, 3).map((tech, idx) => (
+              <span
+                key={idx}
+                className="bg-slate-50 text-slate-600 px-2.5 py-1 rounded text-xs font-medium border border-slate-100"
+              >
+                {tech}
+              </span>
+            ))}
           </div>
         </div>
       </div>
@@ -135,15 +108,27 @@ const Portfolio: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
   const project1Features = [
-    { icon: <Layout size={18} />, text: 'Hunderte Artikel' },
-    { icon: <Search size={18} />, text: 'SEO-optimiert' },
-    { icon: <Layout size={18} />, text: 'Responsive Design' }
+    { icon: <Layout size={16} />, text: 'Hunderte Artikel' },
+    { icon: <Search size={16} />, text: 'SEO-optimiert' },
+    { icon: <Layout size={16} />, text: 'Responsive Design' }
   ];
 
   const project2Features = [
-    { icon: <Database size={18} />, text: '15.000+ Produkte' },
-    { icon: <Search size={18} />, text: 'Advanced Filtering' },
-    { icon: <Layout size={18} />, text: 'Cross-Platform' }
+    { icon: <Database size={16} />, text: '15.000+ Produkte' },
+    { icon: <Search size={16} />, text: 'Advanced Filtering' },
+    { icon: <Layout size={16} />, text: 'Cross-Platform' }
+  ];
+
+  const project3Features = [
+    { icon: <Layout size={16} />, text: 'Leistungsübersicht' },
+    { icon: <Search size={16} />, text: 'Lokale SEO' },
+    { icon: <ExternalLink size={16} />, text: 'Kontaktformular' }
+  ];
+
+  const project4Features = [
+    { icon: <Database size={16} />, text: 'Online-Buchung' },
+    { icon: <Layout size={16} />, text: 'Fahrradkatalog' },
+    { icon: <Search size={16} />, text: 'Verfügbarkeitsprüfung' }
   ];
 
   // IntersectionObserver for reveal-on-scroll animations
@@ -170,8 +155,8 @@ const Portfolio: React.FC = () => {
   return (
     <section id="portfolio" ref={sectionRef} className="py-24 bg-white">
       <div className="container mx-auto px-4">
-        {/* Enhanced Section Header */}
-        <div className="mb-20 stagger-container">
+        {/* Section Header */}
+        <div className="mb-16 stagger-container">
           <h2 className="stagger-item reveal-on-scroll text-brand-600 font-bold uppercase tracking-widest text-xs mb-4">
             Referenzen
           </h2>
@@ -179,35 +164,59 @@ const Portfolio: React.FC = () => {
             Projekte, die funktionieren
           </h3>
           <p className="stagger-item reveal-on-scroll delay-200 text-slate-600 max-w-2xl text-lg leading-relaxed">
-            Theorie ist schön, aber Ergebnisse sind besser. Hier sehen Sie zwei aktuelle Projekte, die zeigen, was ich für Unternehmen und Nutzer umsetzen kann.
+            Theorie ist schön, aber Ergebnisse sind besser. Hier sehen Sie ausgewählte Projekte, die zeigen, was ich für Unternehmen und Nutzer umsetzen kann.
           </p>
         </div>
 
-        {/* Enhanced Projects Space */}
-        <div className="space-y-24">
+        {/* 2x2 Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
 
-          {/* Project 1 - RetireAndEnjoy */}
+          {/* Project 1 - Klinger Glasreinigung (Kundenprojekt) */}
+          <ProjectCard
+            title="Klinger Glasreinigung"
+            category="Unternehmens-Website"
+            description="Professionelle Website für einen Glasreinigungsbetrieb mit Leistungsübersicht, Kontaktformular und lokaler SEO-Optimierung."
+            image="/images/klinger-glasreinigung.png"
+            features={project3Features}
+            technologies={['Next.js', 'Lokale SEO', 'Formular']}
+            projectUrl="https://klinger-glasreinigung.de"
+            isClientProject={true}
+          />
+
+          {/* Project 2 - Joyrides-Rent (Kundenprojekt) */}
+          <ProjectCard
+            title="Joyrides-Rent"
+            category="Unternehmens-Website"
+            description="Fahrradverleih-Website mit Online-Buchungssystem für Heidelberg und Umgebung. Einfache Reservierung und Verfügbarkeitsprüfung."
+            image="/images/joyrides-rent.png"
+            features={project4Features}
+            technologies={['React', 'Buchungssystem', 'API']}
+            projectUrl="https://joyrides-rent.de"
+            isClientProject={true}
+          />
+
+          {/* Project 3 - RetireAndEnjoy (Eigenprojekt) */}
           <ProjectCard
             title="RetireAndEnjoy.com"
             category="Informationsplattform"
             description="Umfassende Informationsplattform für Personen im Ruhestand. Die Seite bietet wertvolle Ressourcen, Guides und Tipps für ein erfülltes Leben nach dem Berufsleben."
             image="/images/retireandenjoy.png"
             features={project1Features}
-            technologies={['React', 'SEO-Optimierung', 'CMS']}
-            reversed={false}
+            technologies={['React', 'SEO', 'CMS']}
             projectUrl="https://retireandenjoy.com"
+            isClientProject={false}
           />
 
-          {/* Project 2 - PaintAtlas */}
+          {/* Project 4 - PaintAtlas (Eigenprojekt) */}
           <ProjectCard
             title="PaintAtlas.com"
             category="Produkt-Verzeichnis"
             description="Umfassendes Directory mit über 15.000 Farben für Hobby-Maler. Die Plattform ermöglicht das Suchen, Vergleichen und Finden der perfekten Farben."
             image="/images/paintatlas.png"
             features={project2Features}
-            technologies={['Datenbanken', 'Performance']}
-            reversed={false}
+            technologies={['Datenbank', 'Performance', 'API']}
             projectUrl="https://paintatlas.com"
+            isClientProject={false}
           />
 
         </div>

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Nicht indexieren
+Disallow: /24h-website
+Disallow: /ki-rezeptionist
+
+Sitemap: https://derhuber.com/sitemap.xml

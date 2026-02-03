@@ -3,32 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Clock, CheckCircle2, Star, Zap, Shield, Phone, Mail, AlertCircle, PhoneIncoming, MessageSquare, Calendar, DollarSign, Users, Headphones, Bot, Sparkles } from 'lucide-react';
 import LandingFooter from './LandingFooter';
-import Script from 'next/script';
-import { usePathname } from 'next/navigation';
-
-declare global {
-  interface Window {
-    YouformEmbed?: {
-      init: () => void;
-    };
-  }
-}
+import ContactForm from './ContactForm';
 
 const LandingKiRezeptionist: React.FC = () => {
-  const pathname = usePathname();
-
-  useEffect(() => {
-    const initializeYouForm = () => {
-      // Wait a bit for the DOM to be ready
-      setTimeout(() => {
-        if (typeof window !== 'undefined' && window.YouformEmbed) {
-          window.YouformEmbed.init();
-        }
-      }, 100);
-    };
-    initializeYouForm();
-  }, [pathname]);
-
   const [timeLeft, setTimeLeft] = useState({
     hours: 23,
     minutes: 59,
@@ -375,24 +352,7 @@ const LandingKiRezeptionist: React.FC = () => {
               </div>
             </div>
 
-            <Script
-              src="https://app.youform.com/embed.js"
-              strategy="afterInteractive"
-              onLoad={() => {
-                setTimeout(() => {
-                  if (typeof window !== 'undefined' && window.YouformEmbed) {
-                    window.YouformEmbed.init();
-                  }
-                }, 100);
-              }}
-            />
-            <div
-              data-youform-embed
-              data-form="ki-rezeptionist"
-              data-width="100%"
-              data-height="600"
-              style={{ minHeight: '600px' }}
-            />
+            <ContactForm idPrefix="ki" />
 
             <p className="text-xs text-slate-500 text-center mt-6">
               Mit der Bestellung stimmen Sie unseren AGB und Datenschutzbestimmungen zu.

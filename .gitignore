@@ -40,3 +40,8 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+.claude/ralph-loop.local.md
+/.playwright-mcp
+nul
+Queries.csv
+SEMANTIC_SEO_PLAN.md

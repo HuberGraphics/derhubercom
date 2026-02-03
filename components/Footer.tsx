@@ -1,33 +1,14 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Mail, Phone, MapPin, Linkedin, Github, Clock } from 'lucide-react';
 import Link from 'next/link';
-import Script from 'next/script';
-import { usePathname } from 'next/navigation';
 import { trackEmailClick, trackPhoneCall } from '../utils/analytics';
 import { servicesData } from '@/data/services';
 import { heidelbergDistricts } from '@/data/districts';
+import ContactForm from './ContactForm';
 
 const Footer: React.FC = () => {
-  const pathname = usePathname();
-
-  useEffect(() => {
-    const initializeYouForm = () => {
-      // Wait a bit for the DOM to be ready
-      setTimeout(() => {
-        if (typeof window !== 'undefined') {
-          // Try both possible window object names
-          if ((window as any).youform) {
-            (window as any).youform.init();
-          } else if ((window as any).YouformEmbed) {
-            (window as any).YouformEmbed.init();
-          }
-        }
-      }, 100);
-    };
-    initializeYouForm();
-  }, [pathname]);
 
   return (
     <footer id="contact" className="bg-slate-50 text-slate-600 border-t border-slate-200">
@@ -70,33 +51,26 @@ const Footer: React.FC = () => {
                 </div>
               </a>
             </div>
+
+            {/* OpenStreetMap */}
+            <div className="mt-6 w-full h-[500px] rounded-lg overflow-hidden border border-slate-200 shadow-sm">
+              <iframe
+                title="Der Huber - Standort in Heidelberg"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                scrolling="no"
+                marginHeight={0}
+                marginWidth={0}
+                src="https://www.openstreetmap.org/export/embed.html?bbox=8.660878544809346,49.368994208852596,8.680878544809346,49.388994208852596&amp;layer=mapnik&amp;marker=49.378994208852596,8.670878544809346"
+                style={{ border: 0 }}
+              />
+            </div>
           </div>
 
           <div className="lg:w-5/12 w-full bg-white p-8 md:p-10 rounded-lg border border-slate-200 shadow-md">
             <h3 className="text-xl font-semibold text-slate-900 mb-6">Schnellkontakt</h3>
-            <Script
-              src="https://app.youform.com/embed.js"
-              strategy="afterInteractive"
-              onLoad={() => {
-                setTimeout(() => {
-                  if (typeof window !== 'undefined') {
-                    // Try both possible window object names
-                    if ((window as any).youform) {
-                      (window as any).youform.init();
-                    } else if ((window as any).YouformEmbed) {
-                      (window as any).YouformEmbed.init();
-                    }
-                  }
-                }, 100);
-              }}
-            />
-            <div
-              data-youform-embed
-              data-form="d1cu7llu"
-              data-width="100%"
-              data-height="700"
-              style={{ minHeight: '700px' }}
-            />
+            <ContactForm idPrefix="footer" />
           </div>
         </div>
       </div>
@@ -137,7 +111,7 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center">
                 <Clock size={18} className="mr-3 text-brand-500 flex-shrink-0" />
-                <span>Mo-Fr: 9:00-18:00 Uhr</span>
+                <span>Mo-Fr: 08:00-20:00 Uhr</span>
               </li>
             </ul>
           </div>

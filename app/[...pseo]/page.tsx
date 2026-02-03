@@ -46,7 +46,6 @@ export async function generateMetadata({ params }: { params: Promise<{ pseo: str
     return {
       title: `${service.title} in Heidelberg | Der Huber`,
       description: `Professionelles ${service.title} in Heidelberg und dem Rhein-Neckar-Kreis. ${service.shortDesc}`,
-      keywords: [`${service.title} Heidelberg`, `${service.title} Rhein-Neckar`, `Webdesign Heidelberg`, `Webentwicklung Heidelberg`],
       openGraph: {
         title: `${service.title} in Heidelberg | Der Huber`,
         description: `Professionelles ${service.title} in Heidelberg. ${service.shortDesc}`,
@@ -54,6 +53,20 @@ export async function generateMetadata({ params }: { params: Promise<{ pseo: str
         siteName: 'Der Huber',
         locale: 'de_DE',
         type: 'website',
+        images: [
+          {
+            url: '/images/og-image.png',
+            width: 1200,
+            height: 630,
+            alt: `${service.title} in Heidelberg - Der Huber`,
+          },
+        ],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: `${service.title} in Heidelberg | Der Huber`,
+        description: `Professionelles ${service.title} in Heidelberg. ${service.shortDesc}`,
+        images: ['/images/og-image.png'],
       },
       alternates: {
         canonical: `https://derhuber.com/${pseo[0]}`,
@@ -67,12 +80,6 @@ export async function generateMetadata({ params }: { params: Promise<{ pseo: str
     return {
       title: `${service.title} in ${district.name} Heidelberg | Der Huber`,
       description: `${service.title} in ${district.name}, Heidelberg. ${district.description} ${service.shortDesc}`,
-      keywords: [
-        `${service.title} ${district.name}`,
-        `${service.title} ${district.name} Heidelberg`,
-        ...district.keywords,
-        `${service.title} Heidelberg`
-      ],
       openGraph: {
         title: `${service.title} in ${district.name} Heidelberg | Der Huber`,
         description: `${service.title} in ${district.name}, Heidelberg. ${service.shortDesc}`,
@@ -80,6 +87,20 @@ export async function generateMetadata({ params }: { params: Promise<{ pseo: str
         siteName: 'Der Huber',
         locale: 'de_DE',
         type: 'website',
+        images: [
+          {
+            url: '/images/og-image.png',
+            width: 1200,
+            height: 630,
+            alt: `${service.title} in ${district.name} Heidelberg - Der Huber`,
+          },
+        ],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: `${service.title} in ${district.name} Heidelberg | Der Huber`,
+        description: `${service.title} in ${district.name}, Heidelberg. ${service.shortDesc}`,
+        images: ['/images/og-image.png'],
       },
       alternates: {
         canonical: `https://derhuber.com/${pseo.join('/')}`,

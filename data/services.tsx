@@ -68,7 +68,7 @@ export const servicesData: ServiceData[] = [
     slug: 'webdesign',
     title: 'Webdesign',
     icon: <Smartphone size={28} />,
-    shortDesc: 'Professionelles Webdesign Heidelberg. Moderne, responsive Websites die Ihre Kunden begeistern und Vertrauen schaffen.',
+    shortDesc: 'Webdesign in Heidelberg: Als lokaler Webdesigner entwickle ich individuelle Websites für KMU im Rhein-Neckar-Kreis. Persönliche Beratung inklusive.',
     fullDesc: 'Ihr digitaler erste Eindruck entscheidet oft in Sekunden. Als erfahrener Webdesigner in Heidelberg entwickle ich Websites, die nicht nur visuell beeindrucken, sondern Ihre Markenidentität perfekt widerspiegeln. Ich setze auf klare Strukturen, emotionale Bildsprache und ein Design, das Ihre Zielgruppe dort abholt, wo sie steht.',
     features: ['Mobile-First Design', 'UI/UX Konzeption', 'Branding & Corporate Identity', 'Barrierefreiheit'],
     benefits: [
@@ -221,7 +221,7 @@ Ein weiterer Schwerpunkt liegt auf Barrierefreiheit (Accessibility). Webdesign s
     slug: 'webentwicklung',
     title: 'Webentwicklung',
     icon: <Monitor size={28} />,
-    shortDesc: 'Technisch ausgereifte Websites, CMS, schnelle Ladezeiten und stabiler Code.',
+    shortDesc: 'Webentwicklung aus Heidelberg: Ich baue schnelle, moderne Websites mit React und Next.js. Direkter Ansprechpartner, faire Preise ab 599€.',
     fullDesc: 'Design ist nichts ohne Funktion. Ich programmiere moderne Webanwendungen und Websites, die blitzschnell laden, sicher sind und sich kinderleicht verwalten lassen. Egal ob individuelle React-Anwendung oder pflegeleichtes CMS – ich liefere sauberen Code, der auch morgen noch funktioniert.',
     features: ['React & Next.js Entwicklung', 'CMS Integration (WordPress, Sanity)', 'API Anbindungen', 'Performance Optimierung'],
     benefits: [
@@ -384,7 +384,7 @@ Auch Sicherheit ist nicht verhandelbar. Ich implementiere Best Practices wie HTT
     slug: 'ux-design',
     title: 'UX-Design',
     icon: <MousePointerClick size={28} />,
-    shortDesc: 'Nutzerfreundliche Websites die Besucher zu Kunden machen durch durchdachte Benutzerführung.',
+    shortDesc: 'UX-Design Heidelberg: Nutzerfreundliche Websites, die Besucher zu Kunden machen. Persönliche Beratung vor Ort im Rhein-Neckar-Kreis.',
     fullDesc: 'User Experience (UX) Design ist der Schlüssel zu hohen Konversionsraten. Ich analysiere, wie sich Ihre Nutzer verhalten, und gestalte Prozesse so einfach wie möglich. Keine unnötigen Klicks, keine Verwirrung – nur ein gerader Weg zur Kontaktaufnahme.',
     features: ['User Research', 'Customer Journey Mapping', 'Prototyping', 'Usability Testing'],
     benefits: [
@@ -420,7 +420,7 @@ Auch Sicherheit ist nicht verhandelbar. Ich implementiere Best Practices wie HTT
     slug: 'online-marketing',
     title: 'Online-Marketing',
     icon: <TrendingUp size={28} />,
-    shortDesc: 'SEO, Google Ads und Social Media Marketing für bessere Sichtbarkeit in Heidelberg und Umgebung.',
+    shortDesc: 'Online-Marketing Heidelberg: Lokales SEO und Google Ads für mehr Sichtbarkeit in der Region. Ihr Partner vor Ort.',
     fullDesc: 'Die schönste Website bringt nichts, wenn sie niemand findet. Mit gezieltem Online-Marketing sorge ich dafür, dass Sie in Heidelberg und dem Rhein-Neckar-Kreis sichtbar werden. Von lokaler Suchmaschinenoptimierung (SEO) bis zu profitablen Google Ads Kampagnen.',
     features: ['Local SEO Heidelberg', 'Google Ads Kampagnen', 'Social Media Strategie', 'Content Marketing'],
     benefits: [

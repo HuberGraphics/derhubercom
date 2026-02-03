@@ -189,6 +189,152 @@ PaintAtlas ist ein umfangreiches Verzeichnis für Hobby-Maler und Künstler mit 
       type: 'Product Directory',
       industry: 'Art & Craft / E-Commerce'
     }
+  },
+  {
+    id: 'klinger-glasreinigung',
+    slug: 'klinger-glasreinigung',
+    title: 'Klinger Glasreinigung',
+    category: 'Unternehmens-Website',
+    shortDescription: 'Professionelle Website für einen Glasreinigungsbetrieb mit Leistungsübersicht, Kontaktformular und lokaler SEO-Optimierung.',
+    fullDescription: `
+Klinger Glasreinigung ist eine moderne Unternehmenswebsite für einen professionellen Glasreinigungsbetrieb. Die Website präsentiert das Leistungsspektrum klar und übersichtlich und ermöglicht einfache Kontaktaufnahme.
+
+**Herausforderungen:**
+- Klare Darstellung der verschiedenen Dienstleistungen
+- Einfache Kontaktmöglichkeit für potenzielle Kunden
+- Lokale Sichtbarkeit in Suchmaschinen
+- Vertrauensaufbau durch professionelle Präsentation
+
+**Lösungen:**
+- Übersichtliche Leistungsseiten mit klaren Beschreibungen
+- Prominentes Kontaktformular und Click-to-Call
+- Lokale SEO-Optimierung für regionale Suchanfragen
+- Professionelles Design mit Fokus auf Seriosität
+
+**Ergebnisse:**
+- Moderne, professionelle Online-Präsenz
+- Verbesserte lokale Sichtbarkeit
+- Erhöhte Kundenanfragen über die Website
+- Mobile-optimierte Darstellung
+    `,
+    image: '/images/klinger-glasreinigung.png',
+    url: 'https://klinger-glasreinigung.de',
+
+    projectType: 'Unternehmens-Website',
+    duration: '3-4 Wochen',
+    role: 'Webdesign & Webentwicklung',
+
+    technologies: [
+      'React',
+      'Next.js',
+      'Responsive Design',
+      'Lokale SEO',
+      'Kontaktformular'
+    ],
+    features: [
+      'Übersichtliche Leistungsdarstellung',
+      'Kontaktformular mit Validierung',
+      'Click-to-Call Integration',
+      'Responsive Mobile Design',
+      'Lokale SEO-Optimierung',
+      'Schnelle Ladezeiten'
+    ],
+    challenges: [
+      'Dienstleistungen klar präsentieren',
+      'Einfache Kontaktaufnahme ermöglichen',
+      'Lokale Sichtbarkeit verbessern',
+      'Vertrauen aufbauen'
+    ],
+    solutions: [
+      'Strukturierte Leistungsseiten',
+      'Mehrere Kontaktoptionen',
+      'Google My Business Integration',
+      'Professionelles Design'
+    ],
+    results: [
+      'Professionelle Online-Präsenz',
+      'Bessere lokale Rankings',
+      'Mehr Kundenanfragen',
+      'Mobile-First Experience'
+    ],
+    relevantServices: ['webdesign', 'webentwicklung'],
+    client: {
+      type: 'Dienstleistungsunternehmen',
+      industry: 'Reinigung / Handwerk'
+    }
+  },
+  {
+    id: 'joyrides-rent',
+    slug: 'joyrides-rent',
+    title: 'Joyrides-Rent',
+    category: 'Unternehmens-Website',
+    shortDescription: 'Fahrradverleih-Website mit Online-Buchungssystem für Heidelberg und Umgebung. Einfache Reservierung und Verfügbarkeitsprüfung.',
+    fullDescription: `
+Joyrides-Rent ist eine moderne Buchungsplattform für einen Fahrradverleih in Heidelberg. Die Website ermöglicht Kunden, Fahrräder online zu reservieren und die Verfügbarkeit in Echtzeit zu prüfen.
+
+**Herausforderungen:**
+- Online-Buchungssystem mit Verfügbarkeitsprüfung
+- Darstellung verschiedener Fahrradtypen und Preise
+- Einfacher Buchungsprozess für Touristen
+- Integration von Standort-Informationen
+
+**Lösungen:**
+- Intuitives Buchungsformular mit Datumswahl
+- Übersichtlicher Fahrradkatalog mit Preisen
+- Mehrsprachige Unterstützung für Touristen
+- Karten-Integration für Standorte
+
+**Ergebnisse:**
+- Automatisierte Online-Buchungen
+- Reduzierter manueller Aufwand
+- Bessere Auslastung des Verleihs
+- Zufriedene Kunden durch einfachen Prozess
+    `,
+    image: '/images/joyrides-rent.png',
+    url: 'https://joyrides-rent.de',
+
+    projectType: 'Buchungsplattform',
+    duration: '5-6 Wochen',
+    role: 'Webentwicklung & Automatisierung',
+
+    technologies: [
+      'React',
+      'Buchungssystem',
+      'Responsive Design',
+      'API-Integration',
+      'Formular-Handling'
+    ],
+    features: [
+      'Online-Buchungssystem',
+      'Verfügbarkeitsprüfung in Echtzeit',
+      'Fahrradkatalog mit Preisen',
+      'Responsive Mobile Design',
+      'Standort-Karte',
+      'Automatische Bestätigungen'
+    ],
+    challenges: [
+      'Buchungssystem implementieren',
+      'Verfügbarkeit verwalten',
+      'Einfacher Prozess für Touristen',
+      'Mehrsprachigkeit'
+    ],
+    solutions: [
+      'Intuitives Buchungsformular',
+      'Echtzeit-Verfügbarkeitsprüfung',
+      'Klares UI-Design',
+      'Automatisierte E-Mails'
+    ],
+    results: [
+      'Automatisierte Buchungen',
+      'Weniger manueller Aufwand',
+      'Bessere Auslastung',
+      'Positive Kundenbewertungen'
+    ],
+    relevantServices: ['webdesign', 'webentwicklung', 'automatisierung'],
+    client: {
+      type: 'Verleih-Service',
+      industry: 'Tourismus / Freizeit'
+    }
   }
 ];
 

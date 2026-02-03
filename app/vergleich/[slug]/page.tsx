@@ -25,10 +25,28 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${comparison.title} | Der Huber`,
     description: comparison.description,
+    alternates: {
+      canonical: `https://derhuber.com/vergleich/${slug}`,
+    },
     openGraph: {
       title: comparison.title,
       description: comparison.description,
+      url: `https://derhuber.com/vergleich/${slug}`,
       type: 'article',
+      images: [
+        {
+          url: '/images/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: `${comparison.title} - Der Huber`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: comparison.title,
+      description: comparison.description,
+      images: ['/images/og-image.png'],
     },
   };
 }
