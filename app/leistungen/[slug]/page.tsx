@@ -10,8 +10,23 @@ export async function generateStaticParams() {
   }))
 }
 
+const metadataOverrides: Record<string, { title: string; description: string; ogTitle: string }> = {
+  webdesign: {
+    title: 'Webdesign Heidelberg | Moderne Websites fuer KMU',
+    description:
+      'Webdesign in Heidelberg mit klarem Prozess, transparenten Preisen und persoenlicher Betreuung. Jetzt unverbindliches Erstgespraech anfragen.',
+    ogTitle: 'Webdesign Heidelberg | Der Huber',
+  },
+  webentwicklung: {
+    title: 'Webentwicklung Heidelberg | React & Next.js fuer Unternehmen',
+    description:
+      'Webentwicklung in Heidelberg: schnelle, wartbare Websites mit React und Next.js. Direkter Ansprechpartner und klare Umsetzung in 4-8 Wochen.',
+    ogTitle: 'Webentwicklung Heidelberg | Der Huber',
+  },
+}
+
 export async function generateMetadata({
-  params
+  params,
 }: {
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
@@ -24,15 +39,20 @@ export async function generateMetadata({
     }
   }
 
+  const override = metadataOverrides[slug]
+  const title = override?.title ?? `${service.title} Heidelberg | Der Huber`
+  const description = override?.description ?? service.shortDesc
+  const ogTitle = override?.ogTitle ?? `${service.title} Heidelberg | Der Huber`
+
   return {
-    title: `${service.title} Heidelberg`,
-    description: service.shortDesc,
+    title,
+    description,
     alternates: {
       canonical: `https://derhuber.com/leistungen/${slug}`,
     },
     openGraph: {
-      title: `${service.title} | Der Huber`,
-      description: service.shortDesc,
+      title: ogTitle,
+      description,
       url: `https://derhuber.com/leistungen/${slug}`,
       type: 'website',
       images: [
@@ -46,14 +66,13 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${service.title} | Der Huber`,
-      description: service.shortDesc,
+      title: ogTitle,
+      description,
       images: ['/images/og-image.png'],
     },
   }
 }
 
-// Generate JSON-LD for Service and Breadcrumb
 function generateJsonLd(slug: string) {
   const service = servicesData.find((s) => s.slug === slug)
   if (!service) return null
@@ -61,7 +80,6 @@ function generateJsonLd(slug: string) {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      // Service Schema
       {
         '@type': 'Service',
         '@id': `https://derhuber.com/leistungen/${slug}#service`,
@@ -78,7 +96,6 @@ function generateJsonLd(slug: string) {
         },
         serviceType: service.title,
       },
-      // BreadcrumbList Schema
       {
         '@type': 'BreadcrumbList',
         '@id': `https://derhuber.com/leistungen/${slug}#breadcrumb`,
@@ -108,7 +125,7 @@ function generateJsonLd(slug: string) {
 }
 
 export default async function ServiceDetailPage({
-  params
+  params,
 }: {
   params: Promise<{ slug: string }>
 }) {

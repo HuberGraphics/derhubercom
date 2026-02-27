@@ -18,6 +18,10 @@ interface ServiceDetailProps {
 
 const ServiceDetail: React.FC<ServiceDetailProps> = ({ slug }) => {
   const service = servicesData.find(s => s.slug === slug);
+  const seoH1Map: Record<string, string> = {
+    webdesign: 'Webdesign Heidelberg',
+    webentwicklung: 'Webentwicklung Heidelberg',
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -89,7 +93,7 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ slug }) => {
 
             {/* Main title */}
             <h1 className="reveal-on-scroll stagger-2 font-display text-5xl md:text-7xl font-bold text-white leading-tight mb-6">
-              {service.title}
+              {seoH1Map[service.slug] ?? service.title}
             </h1>
 
             {/* Promise/Value prop */}

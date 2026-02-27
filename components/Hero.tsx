@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
           {/* === HEADLINE === */}
           <div className={`reveal-on-scroll ${isVisible ? 'is-visible' : ''} stagger-2 mb-6`}>
             <h1 className="font-bold text-4xl md:text-6xl lg:text-7xl tracking-tight leading-tight text-slate-900">
-              Webdesign Heidelberg: Ihre neue Website, sichtbar & effektiv.
+              Webdesign & Webentwicklung Heidelberg: sichtbar und effektiv.
             </h1>
           </div>
 
@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
           <div className={`reveal-on-scroll ${isVisible ? 'is-visible' : ''} stagger-3 mb-8 max-w-2xl`}>
             <p className="text-lg md:text-xl text-slate-700 leading-relaxed">
               In <span className="text-brand-600 font-semibold">4 Wochen</span> zur Website, die Besucher zu Kunden macht.
-              Professionelle <strong>Webentwicklung</strong> mit React & Next.js.
+              Professionelles Webdesign plus <strong>Webentwicklung in Heidelberg</strong> mit React & Next.js.
             </p>
           </div>
 

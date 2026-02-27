@@ -4,14 +4,14 @@ import Footer from '@/components/Footer'
 import { CheckCircle2, ArrowRight, Users, Award, Clock, MessageCircle, Target, Lightbulb } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Webdesign Agentur Heidelberg gesucht? | Freelancer-Alternative',
-  description: 'Webdesign Agentur Heidelberg gesucht? Als Freelancer biete ich Agentur-Qualität ohne Agentur-Preise. Direkter Kontakt, faire Preise ab 599€, schnelle Umsetzung.',
+  title: 'Webdesign Agentur Heidelberg oder Freelancer? | Freelancer-Alternative',
+  description: 'Webdesign Agentur Heidelberg oder Freelancer? Als Freelancer biete ich Agentur-Qualität ohne Agentur-Preise. Direkter Kontakt, faire Preise ab 599€, schnelle Umsetzung.',
   alternates: {
     canonical: 'https://derhuber.com/webdesign-agentur-heidelberg',
   },
   openGraph: {
-    title: 'Webdesign Agentur Heidelberg gesucht? | Freelancer-Alternative',
-    description: 'Webdesign Agentur Heidelberg gesucht? Als Freelancer biete ich Agentur-Qualität ohne Agentur-Preise. Direkter Kontakt, faire Preise ab 599€.',
+    title: 'Webdesign Agentur Heidelberg oder Freelancer? | Freelancer-Alternative',
+    description: 'Webdesign Agentur Heidelberg oder Freelancer? Als Freelancer biete ich Agentur-Qualität ohne Agentur-Preise. Direkter Kontakt, faire Preise ab 599€.',
     url: 'https://derhuber.com/webdesign-agentur-heidelberg',
     images: [
       {
@@ -136,7 +136,7 @@ export default function WebdesignAgenturHeidelbergPage() {
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-                Webdesign Agentur Heidelberg gesucht?
+                Webdesign Agentur Heidelberg oder Freelancer?
               </h1>
 
               <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
@@ -321,3 +321,4 @@ export default function WebdesignAgenturHeidelbergPage() {
     </>
   )
 }
+

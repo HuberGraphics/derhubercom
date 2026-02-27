@@ -4,14 +4,14 @@ import Home from '@/components/Home'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Webdesigner Heidelberg | Der Huber - Webdesign & Webentwicklung',
-  description: 'Ihr Webdesigner aus Heidelberg. Ich entwickle moderne Websites für kleine Unternehmen im Rhein-Neckar-Kreis – persönlich, transparent, ab 599€.',
+  title: 'Webdesign Heidelberg | Webentwicklung Heidelberg | Kostenlose Erstberatung',
+  description: 'Webdesign und Webentwicklung in Heidelberg fuer KMU: schnelle Websites, klare Preise ab 599 EUR und persoenliche Betreuung. Jetzt kostenloses Erstgespraech anfragen.',
   alternates: {
     canonical: 'https://derhuber.com',
   },
   openGraph: {
-    title: 'Webdesigner Heidelberg | Der Huber - Webdesign & Webentwicklung',
-    description: 'Ihr Webdesigner aus Heidelberg. Ich entwickle moderne Websites für kleine Unternehmen im Rhein-Neckar-Kreis – persönlich, transparent, ab 599€.',
+    title: 'Webdesign Heidelberg & Webentwicklung Heidelberg | Der Huber',
+    description: 'Moderne Website fuer Ihr Unternehmen: schnell umgesetzt, transparent bepreist und lokal in Heidelberg betreut. Kostenloses Erstgespraech.',
     url: 'https://derhuber.com',
   },
 }

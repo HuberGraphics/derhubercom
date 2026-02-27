@@ -99,9 +99,9 @@ const Services: React.FC = () => {
 
           {/* Heading */}
           <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-slate-900 mb-6 leading-snug overflow-visible">
-            Alles aus einer Hand für Ihren
+            Webdesign und Webentwicklung Heidelberg:
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-brand-600 pb-2 leading-tight">
-              Online-Erfolg
+              alles aus einer Hand
             </span>
           </h2>
 
@@ -132,3 +132,4 @@ const Services: React.FC = () => {
 };
 
 export default Services;
+
