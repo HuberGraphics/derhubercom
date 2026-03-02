@@ -123,6 +123,23 @@ const Services: React.FC = () => {
             </div>
           ))}
         </div>
+
+        <div className={`reveal-on-scroll ${isVisible ? 'is-visible' : ''} mt-16`}>
+          <div className="max-w-5xl mx-auto rounded-xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 className="text-2xl font-bold text-slate-900 mb-3">
+              Webdesign in Heidelberg: passende Einstiegsseiten
+            </h3>
+            <p className="text-slate-600 mb-6">
+              Je nach Suchintention finden Sie hier die passende Seite mit konkreten Informationen zu Ablauf, Preisrahmen und Zusammenarbeit.
+            </p>
+            <div className="grid md:grid-cols-2 gap-3">
+              <Link href="/webdesign-heidelberg" className="text-brand-700 hover:text-brand-600 font-semibold">Webdesign Heidelberg</Link>
+              <Link href="/webdesigner-heidelberg" className="text-brand-700 hover:text-brand-600 font-semibold">Webdesigner Heidelberg</Link>
+              <Link href="/webdesign-agentur-heidelberg" className="text-brand-700 hover:text-brand-600 font-semibold">Webdesign Agentur Heidelberg</Link>
+              <Link href="/unternehmenswebsite-erstellen-lassen-heidelberg" className="text-brand-700 hover:text-brand-600 font-semibold">Unternehmenswebsite erstellen lassen Heidelberg</Link>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Decorative border */}

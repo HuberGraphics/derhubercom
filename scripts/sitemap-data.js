@@ -34,7 +34,10 @@ const comparisonSlugs = [
 // SEO Landing Pages for specific keywords
 const seoLandingPages = [
   { slug: 'wordpress-heidelberg', title: 'WordPress Websites Heidelberg' },
+  { slug: 'webdesign-heidelberg', title: 'Webdesign Heidelberg' },
+  { slug: 'webdesigner-heidelberg', title: 'Webdesigner Heidelberg' },
   { slug: 'webdesign-agentur-heidelberg', title: 'Webdesign Agentur Heidelberg' },
+  { slug: 'unternehmenswebsite-erstellen-lassen-heidelberg', title: 'Unternehmenswebsite erstellen lassen Heidelberg' },
   { slug: 'landingpage-heidelberg', title: 'Landingpage erstellen lassen Heidelberg' }
 ];
 

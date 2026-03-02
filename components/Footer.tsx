@@ -185,6 +185,18 @@ const Footer: React.FC = () => {
 
         </div>
 
+        <div className="mt-12 p-6 rounded-lg border border-slate-200 bg-white">
+          <h4 className="text-sm font-semibold text-slate-900 uppercase tracking-wide mb-4">
+            Webdesign Heidelberg Themen
+          </h4>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm">
+            <Link href="/webdesign-heidelberg" className="text-slate-600 hover:text-brand-600 transition-base">Webdesign Heidelberg</Link>
+            <Link href="/webdesigner-heidelberg" className="text-slate-600 hover:text-brand-600 transition-base">Webdesigner Heidelberg</Link>
+            <Link href="/webdesign-agentur-heidelberg" className="text-slate-600 hover:text-brand-600 transition-base">Webdesign Agentur Heidelberg</Link>
+            <Link href="/unternehmenswebsite-erstellen-lassen-heidelberg" className="text-slate-600 hover:text-brand-600 transition-base">Unternehmenswebsite erstellen lassen Heidelberg</Link>
+          </div>
+        </div>
+
         <div className="border-t border-slate-200 mt-16 pt-8 text-center text-sm text-slate-500 flex flex-col md:flex-row justify-between items-center">
           <p>© 2025 Der Huber. Alle Rechte vorbehalten.</p>
         </div>

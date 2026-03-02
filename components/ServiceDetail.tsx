@@ -571,6 +571,36 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ slug }) => {
       </section>
 
       {/* =============================================== */}
+      {/* 8.5 LANDINGPAGE LINKS - Mid intent cluster */}
+      {/* =============================================== */}
+      <section className="py-16 bg-white border-t border-slate-200">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 text-center">
+              Weitere Seiten fuer Webdesign in Heidelberg
+            </h2>
+            <p className="text-slate-600 text-center mb-8">
+              Je nach Suchintention finden Sie hier die passende Detailseite.
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Link href="/webdesign-heidelberg" className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-800 font-medium hover:border-brand-300 transition-colors">
+                Webdesign Heidelberg
+              </Link>
+              <Link href="/webdesigner-heidelberg" className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-800 font-medium hover:border-brand-300 transition-colors">
+                Webdesigner Heidelberg
+              </Link>
+              <Link href="/webdesign-agentur-heidelberg" className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-800 font-medium hover:border-brand-300 transition-colors">
+                Webdesign Agentur Heidelberg
+              </Link>
+              <Link href="/unternehmenswebsite-erstellen-lassen-heidelberg" className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-800 font-medium hover:border-brand-300 transition-colors">
+                Unternehmenswebsite erstellen lassen Heidelberg
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =============================================== */}
       {/* 9. RELATED TOPICS - SEO internal linking */}
       {/* =============================================== */}
       {service.clusterInfo && (

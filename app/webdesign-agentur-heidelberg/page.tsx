@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Link from 'next/link'
 import { CheckCircle2, ArrowRight, Users, Award, Clock, MessageCircle, Target, Lightbulb } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -269,6 +270,28 @@ export default function WebdesignAgenturHeidelbergPage() {
                     <span className="text-slate-700 font-medium">{service}</span>
                   </div>
                 ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Cluster Links */}
+        <section className="py-16 bg-slate-50 border-t border-slate-200">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 text-center">
+                Weitere Seiten fuer Webdesign in Heidelberg
+              </h2>
+              <div className="grid sm:grid-cols-3 gap-4">
+                <Link href="/webdesign-heidelberg" className="rounded-lg border border-slate-200 bg-white p-4 text-slate-700 font-medium hover:border-brand-300 transition-colors">
+                  Webdesign Heidelberg
+                </Link>
+                <Link href="/webdesigner-heidelberg" className="rounded-lg border border-slate-200 bg-white p-4 text-slate-700 font-medium hover:border-brand-300 transition-colors">
+                  Webdesigner Heidelberg
+                </Link>
+                <Link href="/unternehmenswebsite-erstellen-lassen-heidelberg" className="rounded-lg border border-slate-200 bg-white p-4 text-slate-700 font-medium hover:border-brand-300 transition-colors">
+                  Unternehmenswebsite erstellen lassen Heidelberg
+                </Link>
               </div>
             </div>
           </div>

@@ -104,6 +104,11 @@ export default function RootLayout({
           src="https://www.googletagmanager.com/gtag/js?id=G-080CGD5Q3V"
           strategy="afterInteractive"
         />
+        <Script
+          src="https://rybbit.derhuber.com/api/script.js"
+          data-site-id="1"
+          defer
+        />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
